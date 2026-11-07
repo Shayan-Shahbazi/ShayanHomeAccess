@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class ZombieManager : MonoBehaviour
@@ -16,6 +17,8 @@ public class ZombieManager : MonoBehaviour
 
     public float waveTimer = 30f;
     public bool waveTimerOn;
+
+    public GameObject MonsterSpawnerTextHolder;
 
     void Start()
     {
@@ -33,6 +36,7 @@ public class ZombieManager : MonoBehaviour
             waveTimer -= Time.deltaTime;
             if (waveTimer <= 0f)
             {
+                StartCoroutine(CanvasShow());
                 waveTimer = 30f;
                 WaveNumb++;
                 WaveText.text = "Wave: " + WaveNumb.ToString();
@@ -41,6 +45,12 @@ public class ZombieManager : MonoBehaviour
         }
     }
 
+    IEnumerator CanvasShow()
+    {
+        MonsterSpawnerTextHolder.SetActive(true);
+        yield return new WaitForSeconds(3f);
+        MonsterSpawnerTextHolder.SetActive(false);
+    }
     void SpawnZombies()
     {
         for (int i = 0; i < WaveNumb; i++)
