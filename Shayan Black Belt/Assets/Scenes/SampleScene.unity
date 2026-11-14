@@ -748,7 +748,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefabToSpawn: {fileID: 7127961831127557149, guid: 23a6a35ea32be3e4ba92b0a81fb2d653, type: 3}
   plane: {fileID: 1897949630}
-  spawnChance: 0.2
+  spawnChance: 0.5
   spawnInterval: 10
 --- !u!4 &242468670
 Transform:
